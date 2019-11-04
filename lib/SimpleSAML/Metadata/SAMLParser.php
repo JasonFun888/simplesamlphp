@@ -1000,7 +1000,7 @@ class SAMLParser
      */
     private function processAttributeAuthorityDescriptor(
         AttributeAuthorityDescriptor $element,
-        $expireTime
+        int $expireTime = null
     ) {
         assert($expireTime === null || is_int($expireTime));
 
