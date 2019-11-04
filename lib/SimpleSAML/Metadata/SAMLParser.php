@@ -1158,8 +1158,9 @@ class SAMLParser
                 $attribute = $e->getXML();
 
                 $name = $attribute->getAttribute('Name');
+                /** @psalm-suppress InvalidArgument  Psalm does not recognize param1 as callable */
                 $values = array_map(
-                    ['\SimpleSAML\Utils\XML', 'getDOMText'],
+                    [Utils\XML::class, 'getDOMText'],
                     Utils\XML::getDOMChildren($attribute, 'AttributeValue', '@saml2')
                 );
 
@@ -1319,7 +1320,8 @@ class SAMLParser
      */
     private static function extractEndpoints(array $endpoints): array
     {
-        return array_map(['self', 'parseGenericEndpoint'], $endpoints);
+        /** @psalm-suppress InvalidArgument  Psalm does not recognize param1 as callable */
+        return array_map([self::class, 'parseGenericEndpoint'], $endpoints);
     }
 
 

@@ -42,13 +42,12 @@ class Exception extends \Exception
      * SimpleSAML\Error\Exception.
      *
      * @param string         $message Exception message
-     * @param int            $code Error code
+     * @param int|string     $code Error code
      * @param \Exception|null $cause The cause of this exception.
      */
     public function __construct($message, $code = 0, \Exception $cause = null)
     {
         assert(is_string($message));
-        assert(is_int($code));
 
         parent::__construct($message, $code);
 
