@@ -238,3 +238,9 @@ typings/
 
 # dotenv environment variables file
 .env
+
+# Ignore ZendStudio Project Files
+.buildpath
+.project
+.settings/
+
